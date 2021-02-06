@@ -22,12 +22,12 @@ async function save(axios, planId) {
     country: "中国",
     state: "NORMAL",
     attendanceType: "",
-    address: "天安门广场",
+    address: "达妮法式甜品",
     type: type,
-    longitude: "116.404267",
-    city: "北京市",
-    province: "北京市",
-    latitude: "39.910131",
+    longitude: "118.58214246228792",
+    city: "山东省",
+    province: "东营市",
+    latitude: "37.45457889612398",
   };
   console.log("Type:", type);
   let { data: res } = await axios.request({

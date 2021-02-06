@@ -8,7 +8,7 @@
 function saveType() {
   var date = new Date();
   let type = "START";
-  if (date.getHours() >= 11 && date.getHours() <= 15) {
+  if (date.getHours() >= 17) {
     type = "END";
   }
   console.log(date);

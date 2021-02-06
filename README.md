@@ -2,3 +2,4 @@
 小康：xiaokang.me
 
 GitHub版自动签到弃用，请使用coding版[https://www.antmoe.com/posts/b27c1244/index.html](https://www.antmoe.com/posts/b27c1244/index.html)
+哈哈

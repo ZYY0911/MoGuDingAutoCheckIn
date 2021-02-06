@@ -22,7 +22,7 @@ async function save(axios, planId) {
     country: "中国",
     state: "NORMAL",
     attendanceType: "",
-    address: "达妮法式甜品",
+    address: "山东省·东营市·达妮法式甜品",
     type: type,
     longitude: "118.58214246228792",
     city: "山东省",

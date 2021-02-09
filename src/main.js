@@ -48,7 +48,7 @@ axios.defaults.baseURL = "https://api.moguding.net:9000";
     if (result) {
       reMindMsg.text = `🎉 ${data.getFullYear()}年${
         data.getMonth() + 1
-      }月${data.getDate()}日 蘑菇丁签到成功啦！ 🎉`;
+      }月${data.getDate()}日${data.getHours()}时 蘑菇丁签到成功啦！ 🎉`;
       reMindMsg.desp = "恭喜你蘑菇丁签到成功了！";
     }
     let msg = await remind(axios, config, reMindMsg);

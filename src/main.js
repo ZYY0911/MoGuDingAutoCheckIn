@@ -9,6 +9,7 @@ let login = require("./components/login");
 let getPlanId = require("./components/planId");
 let save = require("./components/save");
 let remind = require("./components/remind");
+let daily = require("./components/daily")
 // 传入运行的参数
 var args = process.argv.splice(2);
 if (args.length < 3) {
@@ -46,13 +47,30 @@ axios.defaults.baseURL = "https://api.moguding.net:9000";
     // 签到结果
     const result = await save(axios, planId);
     if (result) {
-      reMindMsg.text = `🎉 ${data.getFullYear()}年${
-        data.getMonth() + 1
-      }月${data.getDate()}日${data.getHours()}时 蘑菇丁签到成功啦！ 🎉`;
-      reMindMsg.desp = "恭喜你蘑菇丁签到成功了！";
+      let dayStatus = await daily(axios, planId);
+      if (dayStatus) {
+        if (dayStatus != "OUTTIME") {
+          // 签到成功 日报成功 发消息提示
+          reMindMsg.text =
+              `🎉 ${data.getFullYear()}年${data.getMonth() + 1}月${data.getDate()}日 
+                        【的蘑菇丁每日签到成功！日报：${dayStatus}！！！！！！】 🎉`;
+          reMindMsg.desp = `的蘑菇丁每日签到成功，日报：${dayStatus}！！！！！！`;
+          //       msg ______    发送消息
+          let msg = await remind(axios, config, reMindMsg);
+          console.log(msg);
+        } else {
+          console.log(`日报不执行，不在用户设置的日报时间段内！`)
+        }
+      } else {
+        reMindMsg.text = `🎉 ${data.getFullYear()}年${
+          data.getMonth() + 1
+        }月${data.getDate()}日${data.getHours()}时 蘑菇丁签到成功啦！ 🎉`;
+        reMindMsg.desp = "恭喜你蘑菇丁签到成功了！";
+        //       msg ______    发送消息
+        let msg = await remind(axios, config, reMindMsg);
+        console.log(msg);
+      }
     }
-    let msg = await remind(axios, config, reMindMsg);
-    console.log(msg);
     return true;
   } else {
     return;

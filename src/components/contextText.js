@@ -24,10 +24,10 @@ let ceshi = require("../context/day/ceshiDay.json")
  * @param {从配置中获取专业} loginInfo.leableati
  * @param {迭代次数} iterNum 
  */
-function contentTxts(loginInfo, iterNum) {
+function contentTxts( iterNum) {
   try {
     if (iterNum == 2) { console.log("日报内容生成开始") } else if (iterNum == 3) { console.log("周报内容生成开始") } else if (iterNum == 4) { console.log("月报内容生成开始"); }
-    let college = loginInfo.leableati;
+    let college = 'JAVA';
     console.log("专业是:" + college)
     if (college == "护理") {
       var result = huli.data

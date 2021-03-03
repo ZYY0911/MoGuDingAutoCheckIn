@@ -13,7 +13,7 @@ let contextTexts = require("../components/contextText")
 async function daily (axios, planId) {
   let thisTime = new Date();
   if (thisTime.getHours()==0) { 
-    let contentTxt = '当前状态：在岗 健康状况：健康 今日收获：'+contextTexts('JAVA',2); // 获取内容 日报2遍长度就够了
+    let contentTxt = '当前状态：在岗 健康状况：健康 今日收获：'+contextTexts(2); // 获取内容 日报2遍长度就够了
     let dayTitle = thisTime.getFullYear()+"年"+thisTime.getMonth()+1+"月"+thisTime.getDay()+"日";
     let dataForm = {
       attachmentList: [],

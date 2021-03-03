@@ -31,7 +31,7 @@ let reMindMsg = {
   // 消息标题
   text: "❌ 蘑菇丁签到失败了，请检查 ❌",
   // 消息主体
-  desp: "请检查账号密码或Token（如果存在）是否失效。其他问题请联系作者！",
+  desp: "请检查账号密码或Token（如果存在）是否失效。其他问题请联系ZYY0911！",
 };
 const data = new Date();
 // 基地址
@@ -70,6 +70,25 @@ axios.defaults.baseURL = "https://api.moguding.net:9000";
         let msg = await remind(axios, config, reMindMsg);
         console.log(msg);
       }
+      // sleep(2000)
+      // try {
+      //   const weeksResult = await weeks(axios, planId)
+      //   if (weeksResult) {
+      //     if (weeksResult != "OUTTIME") {
+      //       reMindMsg.text = `🎉 ${data.getFullYear()}年${data.getMonth() + 1}月${data.getDate()}日 蘑菇丁的${weeksResult}】 🎉`;
+      //       reMindMsg.desp = `的周报：${weeksResult}`;
+      //       //       msg ______    发送消息
+      //       await resendMsg(axios, loginInfo, reMindMsg);
+      //     }
+      //   } else {
+      //     reMindMsg.text = `🎉 ${data.getFullYear()}年${data.getMonth() + 1}月${data.getDate()}日 蘑菇丁的周报${weeksResult}】 🎉`;
+      //     reMindMsg.desp = `的周报：错误！`;
+      //     //       msg ______    发送消息
+      //     await resendMsg(axios, loginInfo, reMindMsg);
+      //   }
+      // } catch (error) {
+      //   throw `【周报】异常异常信息:${error}`
+      // }
     }
     return true;
   } else {

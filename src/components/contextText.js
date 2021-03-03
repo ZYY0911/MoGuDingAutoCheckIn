@@ -43,11 +43,8 @@ function contentTxts( iterNum) {
       var result = java.data
       var texts = "";
       let reslength = result.length
-      for (let index = 0; index < iterNum; index++) {
-        let resultRandomLength = Math.round(Math.random() * reslength) // 从0~数据长度 角标
-        texts += result[resultRandomLength].txt;
-        texts += ";";
-      }
+      let resultRandomLength = Math.round(Math.random() * reslength) // 从0~数据长度 角标
+      texts += result[resultRandomLength].txt;
       return texts;
     } else if (college == "学前教育") {
       var result = xueqianjiaoyu.data;

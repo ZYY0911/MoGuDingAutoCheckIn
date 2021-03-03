@@ -13,8 +13,8 @@ let contextTexts = require("../components/contextText")
 async function daily (axios, planId) {
   let thisTime = new Date();
   if (thisTime.getHours()==0) { 
-    let contentTxt = '当前状态：在岗 健康状况：健康 今日收获：'+contextTexts(2); // 获取内容 日报2遍长度就够了
-    let dayTitle = thisTime.getFullYear()+"年"+thisTime.getMonth()+1+"月"+thisTime.getDay()+"日";
+    let contentTxt = '当前状态：在岗\n健康状况：健康\n今日收获：'+contextTexts(2); // 获取内容 日报2遍长度就够了
+    let dayTitle = thisTime.getFullYear()+"年"+(thisTime.getMonth()+1)+"月"+thisTime.getDay()+"日，日报";
     let dataForm = {
       attachmentList: [],
       attachments: "",
@@ -32,7 +32,7 @@ async function daily (axios, planId) {
       });
       if (res.code == 200) {
         console.info(`--------SUCCESS---------日报成功`)
-        return "日报签到成功";
+        return contentTxt;
       } else{
           // 异常
         return false;
